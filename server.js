@@ -10,32 +10,26 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(path.join(__dirname, '/public')));
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './views/index.html'));
+  res.show('index.html');
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, './views/about.html'));
+  res.show('about.html');
 });
 
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, './views/contact.html'));
+  res.show('contact.html')
 });
 
 app.get('/info', (req, res) => {
-  res.sendFile(path.join(__dirname, './views/info.html'));
+  res.show('info.html');
 });
 
 app.get('/history', (req, res) => {
-  res.sendFile(path.join(__dirname, './views/history.html'));
-});
-
-app.get('/style.css', (req, res) => {
-  res.sendFile(path.join(__dirname, '/style.css'));
-});
-
-app.get('/test.png', (req, res) => {
-  res.sendFile(path.join(__dirname, '/test.png'));
+  res.show('history.html');
 });
 
 app.use((req, res) => {
