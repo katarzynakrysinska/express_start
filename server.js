@@ -12,6 +12,10 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, '/public')));
 
+app.get('/hello/:name', (req, res) => {
+  res.send(`Hello ${req.params.name}`);
+});
+
 app.get('/', (req, res) => {
   res.show('index.html');
 });
